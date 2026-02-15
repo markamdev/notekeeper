@@ -25,3 +25,10 @@ all: proto client server
 clean:
 	@echo "Cleaning repo"
 	rm -f client server
+
+install-deps:
+	@echo "Installing dependencies:"
+	@echo "- protoc-gen-go"
+	go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+	@echo "- protoc-gen-go-grpc"
+	go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
