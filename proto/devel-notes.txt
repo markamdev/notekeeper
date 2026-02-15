@@ -1,0 +1,10 @@
+gRPC functions planned for this exercise:
+
+1) Add note
+2) Get all notes
+3) Delete note (extended version)
+4) Update note (extended version)
+
+Note content:
+1) When creating: title, content, tags (extended version)
+2) When fetching: id, title, content, tags (extended version)

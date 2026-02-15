@@ -1,0 +1,42 @@
+syntax = "proto3";
+
+option go_package = "github.com/markamdev/notekeeper";
+
+service NoteKeeper {
+    rpc AddNote (NewNote) returns (AddResult) {};
+    rpc GetNotes (EmptyMsg) returns (NotesCollection) {};
+}
+
+message EmptyMsg {}
+
+message NewNote {
+    string title = 1;
+    string content = 2;
+    TagList tags = 3;
+}
+
+message TagList {
+    repeated string tag = 1;
+}
+
+enum Status {
+    STATUS_OK = 0;
+    STATUS_ERROR = 1;
+    STATUS_NOT_FOUND = 2;
+}
+
+message AddResult {
+    Status statis = 1;
+    string id = 2;
+}
+
+message NotesCollection {
+    repeated NoteContent note = 1;
+}
+
+message NoteContent {
+    string id = 1;
+    string title = 2;
+    string content = 3;
+    TagList tags = 4;
+}
