@@ -10,15 +10,15 @@ proto:
 	@echo "Compiling protobuf files"
 	protoc --go_out=. --go_opt=paths=source_relative \
     	--go-grpc_out=. --go-grpc_opt=paths=source_relative \
-    	proto/notekeeper.proto
+    	proto/notekeeper/notekeeper.proto
 
-client:
+client: proto
 	@echo "Compiling client binary"
 	go build -o client ./cmd/client/main.go
 
-server:
+server: proto
 	@echo "Compiling server binary"
-	go build -o server ./cmd/server/main.go
+	go build -o server ./cmd/server/...
 
 all: proto client server
 
