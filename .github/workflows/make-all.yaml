@@ -21,7 +21,7 @@ jobs:
         run: go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest
       - name: Get Dependencies
         run: go mod download
-      - mame: Build protocol buffers
+      - name: Build protocol buffers
         run: make proto
         shell: bash
       - name: Build server and client
